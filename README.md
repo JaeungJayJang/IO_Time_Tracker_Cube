@@ -51,11 +51,26 @@ The Adafruit tutorial provides all of these amazing core features:
 ## 🛠️ Tech Stack & Components
 
 ### Hardware
-- **🧠 ESP32 Feather HUZZAH** - The brain with built-in WiFi
+- **🧠 ESP32 Feather HUZZAH** - The brain with built-in WiFi *(upgraded from ESP8266)*
 - **📏 Adafruit Prop-Maker FeatherWing** - Accelerometer and sensor integration
 - **🌈 NeoPixel Stick (8x RGB LEDs)** - Beautiful visual feedback
 - **🔊 Piezo Buzzer** - Audio notifications (optional)
 - **🏠 3D Printed Enclosure** - Custom cube housing
+
+### 🔄 ESP32 vs ESP8266 Upgrade
+**Note**: While the original Adafruit tutorial uses the ESP8266, I chose to use the **ESP32** for this implementation. Here's why:
+
+| Feature | ESP8266 | ESP32 | Why I Chose ESP32 |
+|---------|---------|-------|-------------------|
+| **CPU Cores** | Single-core | Dual-core | Better multitasking for sensor processing |
+| **RAM** | 80KB | 520KB | More memory for complex operations |
+| **Flash** | 4MB | 4MB+ | Expandable storage options |
+| **Bluetooth** | ❌ | ✅ | Future expansion possibilities |
+| **GPIO Pins** | Limited | More available | Better for additional sensors |
+| **Power** | Lower | Slightly higher | Acceptable trade-off for performance |
+| **Price** | Lower | Slightly higher | Better value for capabilities |
+
+The ESP32 is fully compatible with the ESP8266 code and libraries, making it a drop-in upgrade that provides room for future enhancements while maintaining the same functionality.
 
 ### Software
 - **⚡ Arduino IDE** with ESP32 board support
@@ -82,9 +97,10 @@ Each cube face is mapped to a specific activity with unique visual feedback:
 ## 🔧 Setup & Installation
 
 ### Prerequisites
-- Arduino IDE with ESP32 board package
+- Arduino IDE with **ESP32** board package (note: tutorial uses ESP8266, but ESP32 is fully compatible)
 - Adafruit IO account ([sign up here](https://io.adafruit.com/))
 - WiFi network credentials
+- 3D printer access or printed enclosure parts
 
 ### Quick Start
 1. **Clone this repository**
@@ -108,9 +124,15 @@ Each cube face is mapped to a specific activity with unique visual feedback:
    - Adafruit NeoPixel
    - Adafruit Unified Sensor
 
-4. **Upload the code** to your ESP32 Feather
+4. **Upload the code** to your ESP32 Feather (make sure to select ESP32 board in Arduino IDE)
 
 5. **Create the TimeTracker feed** in your Adafruit IO dashboard
+
+### 🔧 ESP32 Setup Notes
+If you're also using ESP32 instead of ESP8266:
+- Install the ESP32 board package in Arduino IDE: `https://dl.espressif.com/dl/package_esp32_index.json`
+- Select **"Adafruit ESP32 Feather"** as your board
+- All libraries and code work identically - ESP32 is backward compatible
 
 ### Hardware Assembly
 **Please follow the detailed [Adafruit tutorial](https://learn.adafruit.com/time-tracking-cube/overview) for complete assembly instructions including:**
@@ -120,6 +142,26 @@ Each cube face is mapped to a specific activity with unique visual feedback:
 - Troubleshooting tips
 
 **The tutorial is comprehensive and includes everything needed for a successful build.**
+
+## 🛒 My Component Sourcing
+
+### Where I Got My Parts
+Here's where I sourced the components for my build:
+
+- **🖨️ 3D Printed Enclosure**: Printed at home using my personal 3D printer with single extrusion (PLA filament)
+- **🏪 Most Components**: Purchased from **Micro Center** (great for local pickup and competitive prices)
+  - Adafruit Prop-Maker FeatherWing
+  - NeoPixel Stick (8x RGB LEDs)
+  - Piezo Buzzer
+  - Headers and connectors
+  - Jumper wires and breadboard supplies
+- **🌐 ESP32 Feather**: Ordered from **AliExpress** (cost-effective alternative with longer shipping)
+
+### 💡 Sourcing Tips
+- **Micro Center**: Excellent for immediate availability and supporting local electronics retailers
+- **AliExpress**: Great for ESP32 boards at competitive prices (just allow extra time for shipping)
+- **3D Printing**: If you don't have a 3D printer, local maker spaces or online printing services work well
+- **Adafruit Direct**: Consider purchasing from Adafruit to support the original tutorial creators
 
 ## 📊 Data Integration
 
